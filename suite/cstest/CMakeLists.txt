@@ -6,7 +6,7 @@ find_library(libyaml
     REQUIRED)
 set(CMOCKA_LIB_FILE "${CMAKE_CURRENT_BINARY_DIR}/extern/src/cmocka_ext-build/src/libcmocka.a")
 
-if(CMAKE_VERSION VERSION_GREATER "3.24.0")
+if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
   set(DOWNLOAD_EXTRACT_TIMESTAMP "DOWNLOAD_EXTRACT_TIMESTAMP true")
 endif()
 

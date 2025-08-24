@@ -2083,6 +2083,7 @@ void op_addAvxBroadcast(MCInst *MI, x86_avx_bcast v)
 typedef struct insn_op {
 	uint64_t flags;	// how this instruction update EFLAGS(arithmetic instructions) of FPU FLAGS(for FPU instructions)
 	uint8_t access[6];
+  cs_cpu_flags cpu_flags;
 } insn_op;
 
 static const insn_op insn_ops[] = {

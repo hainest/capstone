@@ -5,422 +5,1262 @@
 
 {	/* X86_AAA, X86_INS_AAA: aaa */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_AF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_AF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AAD8i8, X86_INS_AAD: aad */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AAM8i8, X86_INS_AAM: aam */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AAS, X86_INS_AAS: aas */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_AF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_AF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ABS_F, X86_INS_FABS: fabs */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ABS_Fp32, X86_INS_FABS: fabs */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ABS_Fp64, X86_INS_FABS: fabs */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ABS_Fp80, X86_INS_FABS: fabs */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADC16i16, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16mi, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16mi8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16mr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16ri, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16ri8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16rm, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16rr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC16rr_REV, X86_INS_ADC: adc{w}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32i32, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32mi, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32mi8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32mr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32ri, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32ri8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32rm, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32rr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC32rr_REV, X86_INS_ADC: adc{l}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64i32, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64mi32, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64mi8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64mr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64ri32, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64ri8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64rm, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64rr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC64rr_REV, X86_INS_ADC: adc{q}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8i8, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8mi, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8mi8, X86_INS_ADC: adc{b}	$dst $src */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8mr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8ri, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8ri8, X86_INS_ADC: adc{b}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8rm, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8rr, X86_INS_ADC: adc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADC8rr_REV, X86_INS_ADC: adc{b}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADCX32rm, X86_INS_ADCX: adcx */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADCX32rr, X86_INS_ADCX: adcx */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADCX64rm, X86_INS_ADCX: adcx */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADCX64rr, X86_INS_ADCX: adcx */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16i16, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16mi, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16mi8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16mr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16ri, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16ri8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16rm, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16rr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD16rr_REV, X86_INS_ADD: add{w}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32i32, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32mi, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32mi8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32mr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32ri, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32ri8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32rm, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32rr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD32rr_REV, X86_INS_ADD: add{l}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64i32, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64mi32, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64mi8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64mr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64ri32, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64ri8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64rm, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64rr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD64rr_REV, X86_INS_ADD: add{q}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8i8, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8mi, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8mi8, X86_INS_ADD: add{b}	$dst $src */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8mr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8ri, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8ri8, X86_INS_ADD: add{b}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8rm, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8rr, X86_INS_ADD: add */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADD8rr_REV, X86_INS_ADD: add{b}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADDPDrm, X86_INS_ADDPD: addpd */
@@ -505,127 +1345,377 @@
 
 {	/* X86_ADD_F32m, X86_INS_FADD: fadd */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_F64m, X86_INS_FADD: fadd */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FI16m, X86_INS_FIADD: fiadd */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FI32m, X86_INS_FIADD: fiadd */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FPrST0, X86_INS_FADD: faddp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FST0r, X86_INS_FADD: fadd */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp32, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp32m, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp64, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp64m, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp64m32, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp80, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp80m32, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_Fp80m64, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FpI16m32, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FpI16m64, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FpI16m80, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FpI32m32, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FpI32m64, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FpI32m80, X86_INS_FADD: fadd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADD_FrST0, X86_INS_FADD: fadd */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ADOX32rm, X86_INS_ADOX: adox */
 	X86_EFLAGS_MODIFY_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADOX32rr, X86_INS_ADOX: adox */
 	X86_EFLAGS_MODIFY_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADOX64rm, X86_INS_ADOX: adox */
 	X86_EFLAGS_MODIFY_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ADOX64rr, X86_INS_ADOX: adox */
 	X86_EFLAGS_MODIFY_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AESDECLASTrm, X86_INS_AESDECLAST: aesdeclast */
@@ -690,202 +1780,602 @@
 
 {	/* X86_AND16i16, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16mi, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16mi8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16mr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16ri, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16ri8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16rm, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16rr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND16rr_REV, X86_INS_AND: and{w}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32i32, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32mi, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32mi8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32mr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32ri, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32ri8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32rm, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32rr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND32rr_REV, X86_INS_AND: and{l}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64i32, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64mi32, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64mi8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64mr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64ri32, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64ri8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64rm, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64rr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND64rr_REV, X86_INS_AND: and{q}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8i8, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8mi, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8mi8, X86_INS_AND: and{b}	$dst $src */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8mr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8ri, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8ri8, X86_INS_AND: and{b}	$src1 $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8rm, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8rr, X86_INS_AND: and */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_AND8rr_REV, X86_INS_AND: and{b}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ANDN32rm, X86_INS_ANDN: andn */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_CF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ANDN32rr, X86_INS_ANDN: andn */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_CF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ANDN64rm, X86_INS_ANDN: andn */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_CF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ANDN64rr, X86_INS_ANDN: andn */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_CF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ANDNPDrm, X86_INS_ANDNPD: andnpd */
@@ -930,152 +2420,452 @@
 
 {	/* X86_ARPL16mr, X86_INS_ARPL: arpl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ARPL16rr, X86_INS_ARPL: arpl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTR32rm, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTR32rr, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTR64rm, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTR64rr, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTRI32mi, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTRI32ri, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTRI64mi, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BEXTRI64ri, X86_INS_BEXTR: bextr */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_TF | X86_EFLAGS_RESET_IF | X86_EFLAGS_RESET_DF | X86_EFLAGS_RESET_NT | X86_EFLAGS_RESET_RF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCFILL32rm, X86_INS_BLCFILL: blcfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCFILL32rr, X86_INS_BLCFILL: blcfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCFILL64rm, X86_INS_BLCFILL: blcfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCFILL64rr, X86_INS_BLCFILL: blcfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCI32rm, X86_INS_BLCI: blci */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCI32rr, X86_INS_BLCI: blci */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCI64rm, X86_INS_BLCI: blci */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCI64rr, X86_INS_BLCI: blci */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCIC32rm, X86_INS_BLCIC: blcic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCIC32rr, X86_INS_BLCIC: blcic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCIC64rm, X86_INS_BLCIC: blcic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCIC64rr, X86_INS_BLCIC: blcic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCMSK32rm, X86_INS_BLCMSK: blcmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCMSK32rr, X86_INS_BLCMSK: blcmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCMSK64rm, X86_INS_BLCMSK: blcmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCMSK64rr, X86_INS_BLCMSK: blcmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCS32rm, X86_INS_BLCS: blcs */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCS32rr, X86_INS_BLCS: blcs */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCS64rm, X86_INS_BLCS: blcs */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLCS64rr, X86_INS_BLCS: blcs */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLENDPDrmi, X86_INS_BLENDPD: blendpd */
@@ -1120,102 +2910,302 @@
 
 {	/* X86_BLSFILL32rm, X86_INS_BLSFILL: blsfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSFILL32rr, X86_INS_BLSFILL: blsfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSFILL64rm, X86_INS_BLSFILL: blsfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSFILL64rr, X86_INS_BLSFILL: blsfill */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSI32rm, X86_INS_BLSI: blsi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSI32rr, X86_INS_BLSI: blsi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSI64rm, X86_INS_BLSI: blsi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSI64rr, X86_INS_BLSI: blsi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSIC32rm, X86_INS_BLSIC: blsic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSIC32rr, X86_INS_BLSIC: blsic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSIC64rm, X86_INS_BLSIC: blsic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSIC64rr, X86_INS_BLSIC: blsic */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSMSK32rm, X86_INS_BLSMSK: blsmsk */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_ZF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSMSK32rr, X86_INS_BLSMSK: blsmsk */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_ZF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSMSK64rm, X86_INS_BLSMSK: blsmsk */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_ZF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSMSK64rr, X86_INS_BLSMSK: blsmsk */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_ZF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSR32rm, X86_INS_BLSR: blsr */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSR32rr, X86_INS_BLSR: blsr */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSR64rm, X86_INS_BLSR: blsr */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BLSR64rr, X86_INS_BLSR: blsr */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BNDCL32rm, X86_INS_BNDCL: bndcl */
@@ -1340,62 +3330,182 @@
 
 {	/* X86_BSF16rm, X86_INS_BSF: bsf */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSF16rr, X86_INS_BSF: bsf */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSF32rm, X86_INS_BSF: bsf */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSF32rr, X86_INS_BSF: bsf */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSF64rm, X86_INS_BSF: bsf */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSF64rr, X86_INS_BSF: bsf */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSR16rm, X86_INS_BSR: bsr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSR16rr, X86_INS_BSR: bsr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSR32rm, X86_INS_BSR: bsr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSR32rr, X86_INS_BSR: bsr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSR64rm, X86_INS_BSR: bsr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSR64rr, X86_INS_BSR: bsr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BSWAP16r_BAD, X86_INS_BSWAP: bswap */
@@ -1415,262 +3525,782 @@
 
 {	/* X86_BT16mi8, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT16mr, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT16ri8, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT16rr, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT32mi8, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT32mr, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT32ri8, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT32rr, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT64mi8, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT64mr, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT64ri8, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BT64rr, X86_INS_BT: bt */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC16mi8, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC16mr, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC16ri8, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC16rr, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC32mi8, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC32mr, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC32ri8, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC32rr, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC64mi8, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC64mr, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC64ri8, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTC64rr, X86_INS_BTC: btc */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR16mi8, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR16mr, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR16ri8, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR16rr, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR32mi8, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR32mr, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR32ri8, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR32rr, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR64mi8, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR64mr, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR64ri8, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTR64rr, X86_INS_BTR: btr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS16mi8, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS16mr, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS16ri8, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS16rr, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS32mi8, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS32mr, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS32ri8, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS32rr, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS64mi8, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS64mr, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS64ri8, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BTS64rr, X86_INS_BTS: bts */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BZHI32rm, X86_INS_BZHI: bzhi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BZHI32rr, X86_INS_BZHI: bzhi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BZHI64rm, X86_INS_BZHI: bzhi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_BZHI64rr, X86_INS_BZHI: bzhi */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_RESET_OF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CALL16m, X86_INS_CALL: call */
@@ -1765,37 +4395,107 @@
 
 {	/* X86_CHS_F, X86_INS_FCHS: fchs */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CHS_Fp32, X86_INS_FCHS: fchs */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CHS_Fp64, X86_INS_FCHS: fchs */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CHS_Fp80, X86_INS_FCHS: fchs */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CLAC, X86_INS_CLAC: clac */
 	X86_EFLAGS_RESET_AC,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			X86_EFLAGS_AC, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CLC, X86_INS_CLC: clc */
 	X86_EFLAGS_RESET_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			X86_EFLAGS_CF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CLD, X86_INS_CLD: cld */
 	X86_EFLAGS_RESET_DF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			X86_EFLAGS_DF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CLDEMOTE, X86_INS_CLDEMOTE: cldemote */
@@ -1820,7 +4520,17 @@
 
 {	/* X86_CLI, X86_INS_CLI: cli */
 	X86_EFLAGS_RESET_IF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			X86_EFLAGS_IF | X86_EFLAGS_VIF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CLRSSBSY, X86_INS_CLRSSBSY: clrssbsy */
@@ -1845,492 +4555,1622 @@
 
 {	/* X86_CMC, X86_INS_CMC: cmc */
 	X86_EFLAGS_MODIFY_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVA16rm, X86_INS_CMOVA: cmova */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVA16rr, X86_INS_CMOVA: cmova */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVA32rm, X86_INS_CMOVA: cmova */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVA32rr, X86_INS_CMOVA: cmova */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVA64rm, X86_INS_CMOVA: cmova */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVA64rr, X86_INS_CMOVA: cmova */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVAE16rm, X86_INS_CMOVAE: cmovae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVAE16rr, X86_INS_CMOVAE: cmovae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVAE32rm, X86_INS_CMOVAE: cmovae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVAE32rr, X86_INS_CMOVAE: cmovae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVAE64rm, X86_INS_CMOVAE: cmovae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVAE64rr, X86_INS_CMOVAE: cmovae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVB16rm, X86_INS_CMOVB: cmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVB16rr, X86_INS_CMOVB: cmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVB32rm, X86_INS_CMOVB: cmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVB32rr, X86_INS_CMOVB: cmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVB64rm, X86_INS_CMOVB: cmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVB64rr, X86_INS_CMOVB: cmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE16rm, X86_INS_CMOVBE: cmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE16rr, X86_INS_CMOVBE: cmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE32rm, X86_INS_CMOVBE: cmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE32rr, X86_INS_CMOVBE: cmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE64rm, X86_INS_CMOVBE: cmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE64rr, X86_INS_CMOVBE: cmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVBE_F, X86_INS_FCMOVBE: fcmovbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVBE_Fp32, X86_INS_FCMOVBE: fcmovbe */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVBE_Fp64, X86_INS_FCMOVBE: fcmovbe */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVBE_Fp80, X86_INS_FCMOVBE: fcmovbe */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVB_F, X86_INS_FCMOVB: fcmovb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVB_Fp32, X86_INS_FCMOVB: fcmovb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVB_Fp64, X86_INS_FCMOVB: fcmovb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVB_Fp80, X86_INS_FCMOVB: fcmovb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVE16rm, X86_INS_CMOVE: cmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVE16rr, X86_INS_CMOVE: cmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVE32rm, X86_INS_CMOVE: cmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVE32rr, X86_INS_CMOVE: cmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVE64rm, X86_INS_CMOVE: cmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVE64rr, X86_INS_CMOVE: cmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVE_F, X86_INS_FCMOVE: fcmove */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVE_Fp32, X86_INS_FCMOVE: fcmove */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVE_Fp64, X86_INS_FCMOVE: fcmove */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVE_Fp80, X86_INS_FCMOVE: fcmove */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVG16rm, X86_INS_CMOVG: cmovg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVG16rr, X86_INS_CMOVG: cmovg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVG32rm, X86_INS_CMOVG: cmovg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVG32rr, X86_INS_CMOVG: cmovg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVG64rm, X86_INS_CMOVG: cmovg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVG64rr, X86_INS_CMOVG: cmovg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVGE16rm, X86_INS_CMOVGE: cmovge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVGE16rr, X86_INS_CMOVGE: cmovge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVGE32rm, X86_INS_CMOVGE: cmovge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVGE32rr, X86_INS_CMOVGE: cmovge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVGE64rm, X86_INS_CMOVGE: cmovge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVGE64rr, X86_INS_CMOVGE: cmovge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVL16rm, X86_INS_CMOVL: cmovl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVL16rr, X86_INS_CMOVL: cmovl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVL32rm, X86_INS_CMOVL: cmovl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVL32rr, X86_INS_CMOVL: cmovl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVL64rm, X86_INS_CMOVL: cmovl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVL64rr, X86_INS_CMOVL: cmovl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVLE16rm, X86_INS_CMOVLE: cmovle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVLE16rr, X86_INS_CMOVLE: cmovle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVLE32rm, X86_INS_CMOVLE: cmovle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVLE32rr, X86_INS_CMOVLE: cmovle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVLE64rm, X86_INS_CMOVLE: cmovle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVLE64rr, X86_INS_CMOVLE: cmovle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNBE_F, X86_INS_FCMOVNBE: fcmovnbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNBE_Fp32, X86_INS_FCMOVNBE: fcmovnbe */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNBE_Fp64, X86_INS_FCMOVNBE: fcmovnbe */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNBE_Fp80, X86_INS_FCMOVNBE: fcmovnbe */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNB_F, X86_INS_FCMOVNB: fcmovnb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNB_Fp32, X86_INS_FCMOVNB: fcmovnb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNB_Fp64, X86_INS_FCMOVNB: fcmovnb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNB_Fp80, X86_INS_FCMOVNB: fcmovnb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNE16rm, X86_INS_CMOVNE: cmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNE16rr, X86_INS_CMOVNE: cmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNE32rm, X86_INS_CMOVNE: cmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNE32rr, X86_INS_CMOVNE: cmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNE64rm, X86_INS_CMOVNE: cmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNE64rr, X86_INS_CMOVNE: cmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNE_F, X86_INS_FCMOVNE: fcmovne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNE_Fp32, X86_INS_FCMOVNE: fcmovne */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNE_Fp64, X86_INS_FCMOVNE: fcmovne */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNE_Fp80, X86_INS_FCMOVNE: fcmovne */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNO16rm, X86_INS_CMOVNO: cmovno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNO16rr, X86_INS_CMOVNO: cmovno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNO32rm, X86_INS_CMOVNO: cmovno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNO32rr, X86_INS_CMOVNO: cmovno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNO64rm, X86_INS_CMOVNO: cmovno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNO64rr, X86_INS_CMOVNO: cmovno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP16rm, X86_INS_CMOVNP: cmovnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP16rr, X86_INS_CMOVNP: cmovnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP32rm, X86_INS_CMOVNP: cmovnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP32rr, X86_INS_CMOVNP: cmovnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP64rm, X86_INS_CMOVNP: cmovnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP64rr, X86_INS_CMOVNP: cmovnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNP_F, X86_INS_FCMOVNU: fcmovnu */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNP_Fp32, X86_INS_FCMOVNP: fcmovnp */
@@ -2340,337 +6180,1043 @@
 
 {	/* X86_CMOVNP_Fp64, X86_INS_FCMOVNU: fcmovnu */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNP_Fp80, X86_INS_FCMOVNU: fcmovnu */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVNS16rm, X86_INS_CMOVNS: cmovns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNS16rr, X86_INS_CMOVNS: cmovns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNS32rm, X86_INS_CMOVNS: cmovns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNS32rr, X86_INS_CMOVNS: cmovns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNS64rm, X86_INS_CMOVNS: cmovns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVNS64rr, X86_INS_CMOVNS: cmovns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVO16rm, X86_INS_CMOVO: cmovo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVO16rr, X86_INS_CMOVO: cmovo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVO32rm, X86_INS_CMOVO: cmovo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVO32rr, X86_INS_CMOVO: cmovo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVO64rm, X86_INS_CMOVO: cmovo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVO64rr, X86_INS_CMOVO: cmovo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP16rm, X86_INS_CMOVP: cmovp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP16rr, X86_INS_CMOVP: cmovp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP32rm, X86_INS_CMOVP: cmovp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP32rr, X86_INS_CMOVP: cmovp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP64rm, X86_INS_CMOVP: cmovp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP64rr, X86_INS_CMOVP: cmovp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVP_F, X86_INS_FCMOVU: fcmovu */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_READ, CS_AC_WRITE, 0 }
+	{ CS_AC_READ, CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVP_Fp32, X86_INS_FCMOVU: fcmovu */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVP_Fp64, X86_INS_FCMOVU: fcmovu */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVP_Fp80, X86_INS_FCMOVU: fcmovu */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CMOVS16rm, X86_INS_CMOVS: cmovs */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVS16rr, X86_INS_CMOVS: cmovs */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVS32rm, X86_INS_CMOVS: cmovs */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVS32rr, X86_INS_CMOVS: cmovs */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVS64rm, X86_INS_CMOVS: cmovs */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMOVS64rr, X86_INS_CMOVS: cmovs */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16i16, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16mi, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16mi8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16mr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16ri, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16ri8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16rm, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16rr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP16rr_REV, X86_INS_CMP: cmp{w}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32i32, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32mi, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32mi8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32mr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32ri, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32ri8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32rm, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32rr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP32rr_REV, X86_INS_CMP: cmp{l}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64i32, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64mi32, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64mi8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64mr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64ri32, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64ri8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64rm, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64rr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP64rr_REV, X86_INS_CMP: cmp{q}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8i8, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8mi, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8mi8, X86_INS_CMP: cmp{b}	$dst $src */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8mr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8ri, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8ri8, X86_INS_CMP: cmp{b}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8rm, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8rr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMP8rr_REV, X86_INS_CMP: cmp{b}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPPDrmi, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPPDrmi_alt, X86_INS_CMPPD: cmppd */
@@ -2680,7 +7226,17 @@
 
 {	/* X86_CMPPDrri, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPPDrri_alt, X86_INS_CMPPD: cmppd */
@@ -2690,7 +7246,17 @@
 
 {	/* X86_CMPPSrmi, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPPSrmi_alt, X86_INS_CMPPS: cmpps */
@@ -2700,7 +7266,17 @@
 
 {	/* X86_CMPPSrri, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPPSrri_alt, X86_INS_CMPPS: cmpps */
@@ -2710,52 +7286,152 @@
 
 {	/* X86_CMPSB, X86_INS_CMPSB: cmpsb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSDrm, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSDrm_Int, X86_INS_CMPSD: cmpsd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSDrm_alt, X86_INS_CMPSD: cmpsd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSDrr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSDrr_Int, X86_INS_CMPSD: cmpsd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSDrr_alt, X86_INS_CMPSD: cmpsd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSL, X86_INS_CMPSD: cmpsd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_IGNORE, CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSQ, X86_INS_CMPSQ: cmpsq */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSSrm, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSSrm_Int, X86_INS_CMPSS: cmpss */
@@ -2770,12 +7446,32 @@
 
 {	/* X86_CMPSSrr, X86_INS_CMP: cmp */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSSrr_Int, X86_INS_CMP: cmp */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPSSrr_alt, X86_INS_CMPSS: cmpss */
@@ -2785,137 +7481,419 @@
 
 {	/* X86_CMPSW, X86_INS_CMPSW: cmpsw */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG16B, X86_INS_CMPXCHG16B: cmpxchg16b */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG16rm, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG16rr, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG32rm, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG32rr, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG64rm, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG64rr, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG8B, X86_INS_CMPXCHG8B: cmpxchg8b */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG8rm, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_CMPXCHG8rr, X86_INS_CMPXCHG: cmpxchg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISDrm, X86_INS_COMISD: comisd */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISDrm_Int, X86_INS_COMISD: comisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISDrr, X86_INS_COMISD: comisd */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISDrr_Int, X86_INS_COMISD: comisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISSrm, X86_INS_COMISS: comiss */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISSrm_Int, X86_INS_COMISS: comiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISSrr, X86_INS_COMISS: comiss */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMISSrr_Int, X86_INS_COMISS: comiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_COMP_FST0r, X86_INS_FCOMP: fcomp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_COM_FIPr, X86_INS_FCOMPI: fcompi */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_COM_FIr, X86_INS_FCOMI: fcomi */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_COM_FST0r, X86_INS_FCOM: fcom */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_COS_F, X86_INS_FCOS: fcos */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_COS_Fp32, X86_INS_FCOS: fcos */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_COS_Fp64, X86_INS_FCOS: fcos */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_COS_Fp80, X86_INS_FCOS: fcos */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_CPUID, X86_INS_CPUID: cpuid */
@@ -3310,12 +8288,32 @@
 
 {	/* X86_DAA, X86_INS_DAA: daa */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_AF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DAS, X86_INS_DAS: das */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_AF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DATA16_PREFIX, X86_INS_DATA16: data16 */
@@ -3325,92 +8323,272 @@
 
 {	/* X86_DEC16m, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC16r, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC16r_alt, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC32m, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC32r, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC32r_alt, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC64m, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC64r, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC8m, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DEC8r, X86_INS_DEC: dec */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV16m, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV16r, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV32m, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV32r, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV64m, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV64r, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV8m, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIV8r, X86_INS_DIV: div */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_DIVPDrm, X86_INS_DIVPD: divpd */
@@ -3435,92 +8613,272 @@
 
 {	/* X86_DIVR_F32m, X86_INS_FDIVR: fdivr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_F64m, X86_INS_FDIVR: fdivr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FI16m, X86_INS_FIDIVR: fidivr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FI32m, X86_INS_FIDIVR: fidivr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FPrST0, X86_INS_FDIVRP: fdivrp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FST0r, X86_INS_FDIVR: fdivr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_Fp32m, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_Fp64m, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_Fp64m32, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_Fp80m32, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_Fp80m64, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FpI16m32, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FpI16m64, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FpI16m80, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FpI32m32, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FpI32m64, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FpI32m80, X86_INS_FDIVR: fdivr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVR_FrST0, X86_INS_FDIVR: fdivr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIVSDrm, X86_INS_DIVSD: divsd */
@@ -3565,107 +8923,317 @@
 
 {	/* X86_DIV_F32m, X86_INS_FDIV: fdiv */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_F64m, X86_INS_FDIV: fdiv */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FI16m, X86_INS_FIDIV: fidiv */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FI32m, X86_INS_FIDIV: fidiv */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FPrST0, X86_INS_FDIVP: fdivp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FST0r, X86_INS_FDIV: fdiv */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp32, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp32m, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp64, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp64m, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp64m32, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp80, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp80m32, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_Fp80m64, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FpI16m32, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FpI16m64, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FpI16m80, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FpI32m32, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FpI32m64, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FpI32m80, X86_INS_FDIV: fdiv */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DIV_FrST0, X86_INS_FDIV: fdiv */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_DPPDrmi, X86_INS_DPPD: dppd */
@@ -3740,7 +9308,17 @@
 
 {	/* X86_F2XM1, X86_INS_F2XM1: f2xm1 */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FARCALL16i, X86_INS_LCALL: lcall{w}	$seg : $off */
@@ -3795,42 +9373,122 @@
 
 {	/* X86_FBLDm, X86_INS_FBLD: fbld */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FBSTPm, X86_INS_FBSTP: fbstp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FCOM32m, X86_INS_FCOM: fcom */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FCOM64m, X86_INS_FCOM: fcom */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FCOMP32m, X86_INS_FCOMP: fcomp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FCOMP64m, X86_INS_FCOMP: fcomp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FCOMPP, X86_INS_FCOMPP: fcompp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FDECSTP, X86_INS_FDECSTP: fdecstp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FDISI8087_NOP, X86_INS_FDISI8087_NOP: fdisi8087_nop */
@@ -3850,82 +9508,242 @@
 
 {	/* X86_FFREE, X86_INS_FFREE: ffree */
 	X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FFREEP, X86_INS_FFREEP: ffreep */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FICOM16m, X86_INS_FICOM: ficom */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FICOM32m, X86_INS_FICOM: ficom */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FICOMP16m, X86_INS_FICOMP: ficomp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FICOMP32m, X86_INS_FICOMP: ficomp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FINCSTP, X86_INS_FINCSTP: fincstp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDCW16m, X86_INS_FLDCW: fldcw */
 	X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDENVm, X86_INS_FLDENV: fldenv */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDL2E, X86_INS_FLDL2E: fldl2e */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDL2T, X86_INS_FLDL2T: fldl2t */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDLG2, X86_INS_FLDLG2: fldlg2 */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDLN2, X86_INS_FLDLN2: fldln2 */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FLDPI, X86_INS_FLDPI: fldpi */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FNCLEX, X86_INS_FNCLEX: fnclex */
 	X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FNINIT, X86_INS_FNINIT: fninit */
 	X86_FPU_FLAGS_RESET_C0 | X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_RESET_C2 | X86_FPU_FLAGS_RESET_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FNOP, X86_INS_FNOP: fnop */
@@ -3935,62 +9753,182 @@
 
 {	/* X86_FNSTCW16m, X86_INS_FNSTCW: fnstcw */
 	X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FNSTSW16r, X86_INS_FNSTSW: fnstsw */
 	X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FNSTSWm, X86_INS_FNSTSW: fnstsw */
 	X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FPATAN, X86_INS_FPATAN: fpatan */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FPNCEST0r, X86_INS_FSTPNCE: fstpnce */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FPREM, X86_INS_FPREM: fprem */
 	X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FPREM1, X86_INS_FPREM1: fprem1 */
 	X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FPTAN, X86_INS_FPTAN: fptan */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FRNDINT, X86_INS_FRNDINT: frndint */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FRSTORm, X86_INS_FRSTOR: frstor */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FSAVEm, X86_INS_FNSAVE: fnsave */
 	X86_FPU_FLAGS_RESET_C0 | X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_RESET_C2 | X86_FPU_FLAGS_RESET_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FSCALE, X86_INS_FSCALE: fscale */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FSETPM, X86_INS_FSETPM: fsetpm */
@@ -4000,17 +9938,47 @@
 
 {	/* X86_FSINCOS, X86_INS_FSINCOS: fsincos */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FSTENVm, X86_INS_FNSTENV: fnstenv */
 	X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C1 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FXAM, X86_INS_FXAM: fxam */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_FXRSTOR, X86_INS_FXRSTOR: fxrstor */
@@ -4035,17 +10003,47 @@
 
 {	/* X86_FXTRACT, X86_INS_FXTRACT: fxtract */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FYL2X, X86_INS_FYL2X: fyl2x */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_FYL2XP1, X86_INS_FYL2XP1: fyl2xp1 */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_GETSEC, X86_INS_GETSEC: getsec */
@@ -4130,312 +10128,932 @@
 
 {	/* X86_IDIV16m, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV16r, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV32m, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV32r, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV64m, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV64r, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV8m, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IDIV8r, X86_INS_IDIV: idiv */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ILD_F16m, X86_INS_FILD: fild */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_F32m, X86_INS_FILD: fild */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_F64m, X86_INS_FILD: fild */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp16m32, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp16m64, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp16m80, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp32m32, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp32m64, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp32m80, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp64m32, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp64m64, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ILD_Fp64m80, X86_INS_FILD: fild */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IMUL16m, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16r, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16rm, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16rmi, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16rmi8, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16rr, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16rri, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL16rri8, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32m, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32r, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32rm, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32rmi, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32rmi8, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32rr, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32rri, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL32rri8, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64m, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64r, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64rm, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64rmi32, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64rmi8, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64rr, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64rri32, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL64rri8, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL8m, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IMUL8r, X86_INS_IMUL: imul */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IN16ri, X86_INS_IN: in */
 	0,
-	{ CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IN16rr, X86_INS_IN: in */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IN32ri, X86_INS_IN: in */
 	0,
-	{ CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IN32rr, X86_INS_IN: in */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IN8ri, X86_INS_IN: in */
 	0,
-	{ CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IN8rr, X86_INS_IN: in */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC16m, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC16r, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC16r_alt, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC32m, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC32r, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC32r_alt, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC64m, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC64r, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC8m, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INC8r, X86_INS_INC: inc */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INCSSPD, X86_INS_INCSSPD: incsspd */
@@ -4450,7 +11068,17 @@
 
 {	/* X86_INSB, X86_INS_INSB: insb */
 	0,
-	{ CS_AC_IGNORE, CS_AC_READ, 0 }
+	{ CS_AC_IGNORE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF | X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INSERTPSrm, X86_INS_INSERTPS: insertps */
@@ -4475,17 +11103,47 @@
 
 {	/* X86_INSL, X86_INS_INSD: insd */
 	0,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF | X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INSW, X86_INS_INSW: insw */
 	0,
-	{ CS_AC_IGNORE, CS_AC_READ, 0 }
+	{ CS_AC_IGNORE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF | X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INT, X86_INS_INT: int */
 	X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_IF | X86_EFLAGS_NT | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF, // modified
+			X86_EFLAGS_TF | X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INT1, X86_INS_INT1: int1 */
@@ -4495,12 +11153,32 @@
 
 {	/* X86_INT3, X86_INS_INT3: int3 */
 	X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_IF | X86_EFLAGS_NT | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF, // modified
+			X86_EFLAGS_TF | X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INTO, X86_INS_INTO: into */
 	X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_NT | X86_EFLAGS_VM | X86_EFLAGS_AC, // modified
+			X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INVD, X86_INS_INVD: invd */
@@ -4510,12 +11188,32 @@
 
 {	/* X86_INVEPT32, X86_INS_INVEPT: invept */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INVEPT64, X86_INS_INVEPT: invept */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INVLPG, X86_INS_INVLPG: invlpg */
@@ -4545,217 +11243,647 @@
 
 {	/* X86_INVVPID32, X86_INS_INVVPID: invvpid */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_INVVPID64, X86_INS_INVVPID: invvpid */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IRET16, X86_INS_IRET: iret */
 	X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IRET32, X86_INS_IRETD: iretd */
 	X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_IRET64, X86_INS_IRETQ: iretq */
 	X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ISTT_FP16m, X86_INS_FISTTP: fisttp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_FP32m, X86_INS_FISTTP: fisttp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_FP64m, X86_INS_FISTTP: fisttp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp16m32, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp16m64, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp16m80, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp32m32, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp32m64, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp32m80, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp64m32, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp64m64, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ISTT_Fp64m80, X86_INS_FISTTP: fisttp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_F16m, X86_INS_FIST: fist */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_F32m, X86_INS_FIST: fist */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_FP16m, X86_INS_FISTP: fistp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_FP32m, X86_INS_FISTP: fistp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_FP64m, X86_INS_FISTP: fistp */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp16m32, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp16m64, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp16m80, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp32m32, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp32m64, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp32m80, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp64m32, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp64m64, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_IST_Fp64m80, X86_INS_FISTP: fistp */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_JAE_1, X86_INS_JAE: jae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JAE_2, X86_INS_JAE: jae	$dst */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JAE_4, X86_INS_JAE: jae	$dst */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JA_1, X86_INS_JA: ja */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JA_2, X86_INS_JA: ja	$dst */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JA_4, X86_INS_JA: ja	$dst */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JBE_1, X86_INS_JBE: jbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JBE_2, X86_INS_JBE: jbe	$dst */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JBE_4, X86_INS_JBE: jbe	$dst */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JB_1, X86_INS_JB: jb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JB_2, X86_INS_JB: jb	$dst */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JB_4, X86_INS_JB: jb	$dst */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JCXZ, X86_INS_JCXZ: jcxz */
@@ -4770,77 +11898,227 @@
 
 {	/* X86_JE_1, X86_INS_JE: je */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JE_2, X86_INS_JE: je	$dst */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JE_4, X86_INS_JE: je	$dst */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JGE_1, X86_INS_JGE: jge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JGE_2, X86_INS_JGE: jge	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JGE_4, X86_INS_JGE: jge	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JG_1, X86_INS_JG: jg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JG_2, X86_INS_JG: jg	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JG_4, X86_INS_JG: jg	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JLE_1, X86_INS_JLE: jle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JLE_2, X86_INS_JLE: jle	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JLE_4, X86_INS_JLE: jle	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JL_1, X86_INS_JL: jl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JL_2, X86_INS_JL: jl	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JL_4, X86_INS_JL: jl	$dst */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JMP16m, X86_INS_JMP: jmp */
@@ -4920,92 +12198,272 @@
 
 {	/* X86_JNE_1, X86_INS_JNE: jne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNE_2, X86_INS_JNE: jne	$dst */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNE_4, X86_INS_JNE: jne	$dst */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNO_1, X86_INS_JNO: jno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNO_2, X86_INS_JNO: jno	$dst */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNO_4, X86_INS_JNO: jno	$dst */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNP_1, X86_INS_JNP: jnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNP_2, X86_INS_JNP: jnp	$dst */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNP_4, X86_INS_JNP: jnp	$dst */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNS_1, X86_INS_JNS: jns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNS_2, X86_INS_JNS: jns	$dst */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JNS_4, X86_INS_JNS: jns	$dst */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JO_1, X86_INS_JO: jo */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JO_2, X86_INS_JO: jo	$dst */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JO_4, X86_INS_JO: jo	$dst */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JP_1, X86_INS_JP: jp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JP_2, X86_INS_JP: jp	$dst */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JP_4, X86_INS_JP: jp	$dst */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JRCXZ, X86_INS_JRCXZ: jrcxz */
@@ -5015,17 +12473,47 @@
 
 {	/* X86_JS_1, X86_INS_JS: js */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JS_2, X86_INS_JS: js	$dst */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_JS_4, X86_INS_JS: js	$dst */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KADDBrr, X86_INS_KADDB: kaddb */
@@ -5225,22 +12713,62 @@
 
 {	/* X86_KORTESTBrr, X86_INS_KORTESTB: kortestb */
 	X86_REG_EFLAGS,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KORTESTDrr, X86_INS_KORTESTD: kortestd */
 	X86_REG_EFLAGS,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KORTESTQrr, X86_INS_KORTESTQ: kortestq */
 	X86_REG_EFLAGS,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KORTESTWrr, X86_INS_KORTESTW: kortestw */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KORWrr, X86_INS_KORW: korw */
@@ -5290,22 +12818,62 @@
 
 {	/* X86_KTESTBrr, X86_INS_KTESTB: ktestb */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KTESTDrr, X86_INS_KTESTD: ktestd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KTESTQrr, X86_INS_KTESTQ: ktestq */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KTESTWrr, X86_INS_KTESTW: ktestw */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_KUNPCKBWrr, X86_INS_KUNPCKBW: kunpckbw */
@@ -5365,37 +12933,107 @@
 
 {	/* X86_LAHF, X86_INS_LAHF: lahf */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LAR16rm, X86_INS_LAR: lar */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LAR16rr, X86_INS_LAR: lar */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LAR32rm, X86_INS_LAR: lar */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LAR32rr, X86_INS_LAR: lar */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LAR64rm, X86_INS_LAR: lar */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LAR64rr, X86_INS_LAR: lar */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LDDQUrm, X86_INS_LDDQU: lddqu */
@@ -5420,92 +13058,272 @@
 
 {	/* X86_LD_F0, X86_INS_FLDZ: fldz */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_F1, X86_INS_FLD1: fld1 */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_F32m, X86_INS_FLD: fld */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_F64m, X86_INS_FLD: fld */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_F80m, X86_INS_FLD: fld */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp032, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp064, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp080, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp132, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp164, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp180, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp32m, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp32m64, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp32m80, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp64m, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp64m80, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Fp80m, X86_INS_FLD: fld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LD_Frr, X86_INS_FLD: fld */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_LEA16r, X86_INS_LEA: lea */
@@ -5650,22 +13468,62 @@
 
 {	/* X86_LODSB, X86_INS_LODSB: lodsb */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LODSL, X86_INS_LODSD: lodsd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LODSQ, X86_INS_LODSQ: lodsq */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LODSW, X86_INS_LODSW: lodsw */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LOOP, X86_INS_LOOP: loop */
@@ -5675,12 +13533,32 @@
 
 {	/* X86_LOOPE, X86_INS_LOOPE: loope */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LOOPNE, X86_INS_LOOPNE: loopne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LRETIL, X86_INS_RETF: retf */
@@ -5715,32 +13593,92 @@
 
 {	/* X86_LSL16rm, X86_INS_LSL: lsl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LSL16rr, X86_INS_LSL: lsl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LSL32rm, X86_INS_LSL: lsl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LSL32rr, X86_INS_LSL: lsl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LSL64rm, X86_INS_LSL: lsl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LSL64rr, X86_INS_LSL: lsl */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LSS16rm, X86_INS_LSS: lss */
@@ -5770,22 +13708,62 @@
 
 {	/* X86_LWPINS32rmi, X86_INS_LWPINS: lwpins */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LWPINS32rri, X86_INS_LWPINS: lwpins */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LWPINS64rmi, X86_INS_LWPINS: lwpins */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LWPINS64rri, X86_INS_LWPINS: lwpins */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LWPVAL32rmi, X86_INS_LWPVAL: lwpval */
@@ -5810,32 +13788,92 @@
 
 {	/* X86_LZCNT16rm, X86_INS_LZCNT: lzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LZCNT16rr, X86_INS_LZCNT: lzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LZCNT32rm, X86_INS_LZCNT: lzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LZCNT32rr, X86_INS_LZCNT: lzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LZCNT64rm, X86_INS_LZCNT: lzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_LZCNT64rr, X86_INS_LZCNT: lzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MASKMOVDQU, X86_INS_MASKMOVDQU: maskmovdqu */
@@ -7675,27 +15713,77 @@
 
 {	/* X86_MOVSB, X86_INS_MOVSB: movsb */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSDmr, X86_INS_MOVSD: movsd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSDrm, X86_INS_MOVSD: movsd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSDrr, X86_INS_MOVSD: movsd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSDrr_REV, X86_INS_MOVSD: movsd	$dst $src2 */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSDto64mr, X86_INS_MOVQ: movq	$dst $src */
@@ -7720,7 +15808,17 @@
 
 {	/* X86_MOVSL, X86_INS_MOVSD: movsd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSLDUPrm, X86_INS_MOVSLDUP: movsldup */
@@ -7735,7 +15833,17 @@
 
 {	/* X86_MOVSQ, X86_INS_MOVSQ: movsq */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSS2DImr, X86_INS_MOVD: movd	$dst $src */
@@ -7770,7 +15878,17 @@
 
 {	/* X86_MOVSW, X86_INS_MOVSW: movsw */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MOVSX16rm16, X86_INS_MOVSX: movsx */
@@ -7980,42 +16098,122 @@
 
 {	/* X86_MUL16m, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL16r, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL32m, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL32r, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL64m, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL64r, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL8m, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MUL8r, X86_INS_MUL: mul */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_MULPDrm, X86_INS_MULPD: mulpd */
@@ -8100,107 +16298,317 @@
 
 {	/* X86_MUL_F32m, X86_INS_FMUL: fmul */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_F64m, X86_INS_FMUL: fmul */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FI16m, X86_INS_FIMUL: fimul */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FI32m, X86_INS_FIMUL: fimul */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FPrST0, X86_INS_FMULP: fmulp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FST0r, X86_INS_FMUL: fmul */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp32, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp32m, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp64, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp64m, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp64m32, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp80, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp80m32, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_Fp80m64, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FpI16m32, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FpI16m64, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FpI16m80, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FpI32m32, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FpI32m64, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FpI32m80, X86_INS_FMUL: fmul */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MUL_FrST0, X86_INS_FMUL: fmul */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_MWAITXrrr, X86_INS_MWAITX: mwaitx */
@@ -8215,42 +16623,122 @@
 
 {	/* X86_NEG16m, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG16r, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG32m, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG32r, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG64m, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG64r, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG8m, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NEG8r, X86_INS_NEG: neg */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_NOOP, X86_INS_NOP: nop */
@@ -8450,182 +16938,542 @@
 
 {	/* X86_OR16i16, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16mi, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16mi8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16mr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16ri, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16ri8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16rm, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16rr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR16rr_REV, X86_INS_OR: or{w}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32i32, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32mi, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32mi8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32mr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32ri, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32ri8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32rm, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32rr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR32rr_REV, X86_INS_OR: or{l}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64i32, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64mi32, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64mi8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64mr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64ri32, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64ri8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64rm, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64rr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR64rr_REV, X86_INS_OR: or{q}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8i8, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8mi, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8mi8, X86_INS_OR: or{b}	$dst $src */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8mr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8ri, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8ri8, X86_INS_OR: or{b}	$src1 $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8rm, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8rr, X86_INS_OR: or */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OR8rr_REV, X86_INS_OR: or{b}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ORPDrm, X86_INS_ORPD: orpd */
@@ -8650,47 +17498,137 @@
 
 {	/* X86_OUT16ir, X86_INS_OUT: out */
 	0,
-	{ CS_AC_IGNORE, CS_AC_READ, 0 }
+	{ CS_AC_IGNORE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUT16rr, X86_INS_OUT: out */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUT32ir, X86_INS_OUT: out */
 	0,
-	{ CS_AC_IGNORE, CS_AC_READ, 0 }
+	{ CS_AC_IGNORE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUT32rr, X86_INS_OUT: out */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUT8ir, X86_INS_OUT: out */
 	0,
-	{ CS_AC_IGNORE, CS_AC_READ, 0 }
+	{ CS_AC_IGNORE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUT8rr, X86_INS_OUT: out */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUTSB, X86_INS_OUTSB: outsb */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF | X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUTSL, X86_INS_OUTSD: outsd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_IGNORE, 0 }
+	{ CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF | X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_OUTSW, X86_INS_OUTSW: outsw */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF | X86_EFLAGS_IOPL, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PABSBrm, X86_INS_PABSB: pabsb */
@@ -8980,22 +17918,62 @@
 
 {	/* X86_PCMPESTRIrm, X86_INS_PCMPESTRI: pcmpestri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPESTRIrr, X86_INS_PCMPESTRI: pcmpestri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPESTRMrm, X86_INS_PCMPESTRM: pcmpestrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPESTRMrr, X86_INS_PCMPESTRM: pcmpestrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPGTBrm, X86_INS_PCMPGTB: pcmpgtb */
@@ -9040,27 +18018,77 @@
 
 {	/* X86_PCMPISTRIrm, X86_INS_PCMPISTRI: pcmpistri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPISTRIrr, X86_INS_PCMPISTRI: pcmpistri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPISTRMrm, X86_INS_PCMPISTRM: pcmpistrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCMPISTRMrr, X86_INS_PCMPISTRM: pcmpistrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PCONFIG, X86_INS_PCONFIG: pconfig */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PDEP32rm, X86_INS_PDEP: pdep */
@@ -9870,32 +18898,92 @@
 
 {	/* X86_POPCNT16rm, X86_INS_POPCNT: popcnt */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPCNT16rr, X86_INS_POPCNT: popcnt */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPCNT32rm, X86_INS_POPCNT: popcnt */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPCNT32rr, X86_INS_POPCNT: popcnt */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPCNT64rm, X86_INS_POPCNT: popcnt */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPCNT64rr, X86_INS_POPCNT: popcnt */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPDS16, X86_INS_POP: pop */
@@ -9920,17 +19008,47 @@
 
 {	/* X86_POPF16, X86_INS_POPF: popf */
 	X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM | X86_EFLAGS_VIP, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_ID, // modified
+			X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPF32, X86_INS_POPFD: popfd */
 	X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM | X86_EFLAGS_VIP, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_ID, // modified
+			X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPF64, X86_INS_POPFQ: popfq */
 	X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM | X86_EFLAGS_VIP, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_ID, // modified
+			X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_POPFS16, X86_INS_POP: pop */
@@ -10320,12 +19438,32 @@
 
 {	/* X86_PTESTrm, X86_INS_PTEST: ptest */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PTESTrr, X86_INS_PTEST: ptest */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PTWRITE64m, X86_INS_PTWRITE: ptwrite */
@@ -10535,17 +19673,47 @@
 
 {	/* X86_PUSHF16, X86_INS_PUSHF: pushf */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PUSHF32, X86_INS_PUSHFD: pushfd */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PUSHF64, X86_INS_PUSHFQ: pushfq */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_PUSHFS16, X86_INS_PUSH: push */
@@ -10610,122 +19778,362 @@
 
 {	/* X86_RCL16m1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL16mCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL16mi, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL16r1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL16rCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL16ri, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL32m1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL32mCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL32mi, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL32r1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL32rCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL32ri, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL64m1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL64mCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL64mi, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL64r1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL64rCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL64ri, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL8m1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL8mCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL8mi, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL8r1, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL8rCL, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCL8ri, X86_INS_RCL: rcl */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RCPPSm, X86_INS_RCPPS: rcpps */
@@ -10760,122 +20168,506 @@
 
 {	/* X86_RCR16m1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR16mCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR16mi, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR16r1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR16rCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR16ri, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR32m1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR32mCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR32mi, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR32r1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR32rCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR32ri, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR64m1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR64mCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR64mi, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR64r1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR64rCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR64ri, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR8m1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR8mCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR8mi, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR8r1, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR8rCL, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RCR8ri, X86_INS_RCR: rcr */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_RDFSBASE, X86_INS_RDFSBASE: rdfsbase */
@@ -10925,32 +20717,92 @@
 
 {	/* X86_RDRAND16r, X86_INS_RDRAND: rdrand */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RDRAND32r, X86_INS_RDRAND: rdrand */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RDRAND64r, X86_INS_RDRAND: rdrand */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RDSEED16r, X86_INS_RDSEED: rdseed */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RDSEED32r, X86_INS_RDSEED: rdseed */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RDSEED64r, X86_INS_RDSEED: rdseed */
 	X86_EFLAGS_MODIFY_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RDSSPD, X86_INS_RDSSPD: rdsspd */
@@ -11020,242 +20872,722 @@
 
 {	/* X86_ROL16m1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL16mCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL16mi, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL16r1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL16rCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL16ri, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL32m1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL32mCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL32mi, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL32r1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL32rCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL32ri, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL64m1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL64mCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL64mi, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL64r1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL64rCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL64ri, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL8m1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL8mCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL8mi, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL8r1, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL8rCL, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROL8ri, X86_INS_ROL: rol */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR16m1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR16mCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR16mi, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR16r1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR16rCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR16ri, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR32m1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR32mCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR32mi, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR32r1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR32rCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR32ri, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR64m1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR64mCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR64mi, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR64r1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR64rCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR64ri, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR8m1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR8mCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR8mi, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR8r1, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR8rCL, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_ROR8ri, X86_INS_ROR: ror */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RORX32mi, X86_INS_RORX: rorx */
@@ -11340,7 +21672,17 @@
 
 {	/* X86_RSM, X86_INS_RSM: rsm */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_VM | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_RSQRTPSm, X86_INS_RSQRTPS: rsqrtps */
@@ -11380,7 +21722,17 @@
 
 {	/* X86_SAHF, X86_INS_SAHF: sahf */
 	X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAL16m1, X86_INS_SAL: sal */
@@ -11505,127 +21857,377 @@
 
 {	/* X86_SALC, X86_INS_SALC: salc */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR16m1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR16mCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR16mi, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR16r1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR16rCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR16ri, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR32m1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR32mCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR32mi, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR32r1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR32rCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR32ri, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR64m1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR64mCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR64mi, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR64r1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR64rCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR64ri, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR8m1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR8mCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR8mi, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR8r1, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR8rCL, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SAR8ri, X86_INS_SAR: sar */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SARX32rm, X86_INS_SARX: sarx */
@@ -11655,352 +22257,1052 @@
 
 {	/* X86_SBB16i16, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16mi, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16mi8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16mr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16ri, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16ri8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16rm, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16rr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB16rr_REV, X86_INS_SBB: sbb{w}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32i32, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32mi, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32mi8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32mr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32ri, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32ri8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32rm, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32rr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB32rr_REV, X86_INS_SBB: sbb{l}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64i32, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64mi32, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64mi8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64mr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64ri32, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64ri8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64rm, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64rr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB64rr_REV, X86_INS_SBB: sbb{q}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8i8, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8mi, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8mi8, X86_INS_SBB: sbb{b}	$dst $src */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8mr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8ri, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8ri8, X86_INS_SBB: sbb{b}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8rm, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8rr, X86_INS_SBB: sbb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SBB8rr_REV, X86_INS_SBB: sbb{b}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SCASB, X86_INS_SCASB: scasb */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SCASL, X86_INS_SCASD: scasd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SCASQ, X86_INS_SCASQ: scasq */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SCASW, X86_INS_SCASW: scasw */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_DF, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETAEm, X86_INS_SETAE: setae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETAEr, X86_INS_SETAE: setae */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETAm, X86_INS_SETA: seta */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETAr, X86_INS_SETA: seta */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETBEm, X86_INS_SETBE: setbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETBEr, X86_INS_SETBE: setbe */
 	X86_EFLAGS_TEST_ZF | X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETBm, X86_INS_SETB: setb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETBr, X86_INS_SETB: setb */
 	X86_EFLAGS_TEST_CF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_CF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETEm, X86_INS_SETE: sete */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETEr, X86_INS_SETE: sete */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETGEm, X86_INS_SETGE: setge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETGEr, X86_INS_SETGE: setge */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETGm, X86_INS_SETG: setg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETGr, X86_INS_SETG: setg */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETLEm, X86_INS_SETLE: setle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETLEr, X86_INS_SETLE: setle */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF | X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETLm, X86_INS_SETL: setl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETLr, X86_INS_SETL: setl */
 	X86_EFLAGS_TEST_OF | X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF | X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNEm, X86_INS_SETNE: setne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNEr, X86_INS_SETNE: setne */
 	X86_EFLAGS_TEST_ZF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_ZF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNOm, X86_INS_SETNO: setno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNOr, X86_INS_SETNO: setno */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNPm, X86_INS_SETNP: setnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNPr, X86_INS_SETNP: setnp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNSm, X86_INS_SETNS: setns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETNSr, X86_INS_SETNS: setns */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETOm, X86_INS_SETO: seto */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETOr, X86_INS_SETO: seto */
 	X86_EFLAGS_TEST_OF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_OF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETPm, X86_INS_SETP: setp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETPr, X86_INS_SETP: setp */
 	X86_EFLAGS_TEST_PF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_PF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETSSBSY, X86_INS_SETSSBSY: setssbsy */
@@ -12010,12 +23312,32 @@
 
 {	/* X86_SETSm, X86_INS_SETS: sets */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SETSr, X86_INS_SETS: sets */
 	X86_EFLAGS_TEST_SF,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_SF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SFENCE, X86_INS_SFENCE: sfence */
@@ -12110,182 +23432,542 @@
 
 {	/* X86_SHL16m1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL16mCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL16mi, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL16r1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL16rCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL16ri, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL32m1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL32mCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL32mi, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL32r1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL32rCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL32ri, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL64m1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL64mCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL64mi, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL64r1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL64rCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL64ri, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL8m1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL8mCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL8mi, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL8r1, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL8rCL, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHL8ri, X86_INS_SHL: shl */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD16mrCL, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD16mri8, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD16rrCL, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD16rri8, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD32mrCL, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD32mri8, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD32rrCL, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD32rri8, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD64mrCL, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD64mri8, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD64rrCL, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLD64rri8, X86_INS_SHLD: shld */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHLX32rm, X86_INS_SHLX: shlx */
@@ -12310,182 +23992,542 @@
 
 {	/* X86_SHR16m1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR16mCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR16mi, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR16r1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR16rCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR16ri, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR32m1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR32mCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR32mi, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR32r1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR32rCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR32ri, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR64m1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR64mCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR64mi, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR64r1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR64rCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR64ri, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR8m1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR8mCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR8mi, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR8r1, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR8rCL, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHR8ri, X86_INS_SHR: shr */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD16mrCL, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD16mri8, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD16rrCL, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD16rri8, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD32mrCL, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD32mri8, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD32rrCL, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD32rri8, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD64mrCL, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD64mri8, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD64rrCL, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRD64rri8, X86_INS_SHRD: shrd */
 	X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			0, // set_0
+			0, // set_1
+			X86_EFLAGS_AF | X86_EFLAGS_OF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SHRX32rm, X86_INS_SHRX: shrx */
@@ -12545,22 +24587,62 @@
 
 {	/* X86_SIN_F, X86_INS_FSIN: fsin */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SIN_Fp32, X86_INS_FSIN: fsin */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SIN_Fp64, X86_INS_FSIN: fsin */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SIN_Fp80, X86_INS_FSIN: fsin */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SKINIT, X86_INS_SKINIT: skinit */
@@ -12680,37 +24762,107 @@
 
 {	/* X86_SQRT_F, X86_INS_FSQRT: fsqrt */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SQRT_Fp32, X86_INS_FSQRT: fsqrt */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SQRT_Fp64, X86_INS_FSQRT: fsqrt */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SQRT_Fp80, X86_INS_FSQRT: fsqrt */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_STAC, X86_INS_STAC: stac */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			X86_EFLAGS_AC, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STC, X86_INS_STC: stc */
 	X86_EFLAGS_SET_CF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			X86_EFLAGS_CF, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STD, X86_INS_STD: std */
 	X86_EFLAGS_SET_DF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			0, // set_0
+			X86_EFLAGS_DF, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STGI, X86_INS_STGI: stgi */
@@ -12720,7 +24872,17 @@
 
 {	/* X86_STI, X86_INS_STI: sti */
 	X86_EFLAGS_SET_IF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL, // tested
+			X86_EFLAGS_IF | X86_EFLAGS_VIF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STMXCSR, X86_INS_STMXCSR: stmxcsr */
@@ -12730,22 +24892,62 @@
 
 {	/* X86_STOSB, X86_INS_STOSB: stosb */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STOSL, X86_INS_STOSD: stosd */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STOSQ, X86_INS_STOSQ: stosq */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STOSW, X86_INS_STOSW: stosw */
 	X86_EFLAGS_TEST_DF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			X86_EFLAGS_DF, // tested
+			0, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_STR16r, X86_INS_STR: str */
@@ -12770,272 +24972,812 @@
 
 {	/* X86_ST_F32m, X86_INS_FST: fst */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_F64m, X86_INS_FST: fst */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FP32m, X86_INS_FSTP: fstp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FP64m, X86_INS_FSTP: fstp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FP80m, X86_INS_FSTP: fstp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FPrr, X86_INS_FSTP: fstp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_Fp32m, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_Fp64m, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_Fp64m32, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_Fp80m32, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_Fp80m64, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FpP32m, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FpP64m, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FpP64m32, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FpP80m, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FpP80m32, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_FpP80m64, X86_INS_FST: fst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_ST_Frr, X86_INS_FST: fst */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB16i16, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16mi, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16mi8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16mr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16ri, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16ri8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16rm, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16rr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB16rr_REV, X86_INS_SUB: sub{w}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32i32, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32mi, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32mi8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32mr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32ri, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32ri8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32rm, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32rr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB32rr_REV, X86_INS_SUB: sub{l}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64i32, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64mi32, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64mi8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64mr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64ri32, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64ri8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64rm, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64rr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB64rr_REV, X86_INS_SUB: sub{q}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8i8, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8mi, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8mi8, X86_INS_SUB: sub{b}	$dst $src */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8mr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8ri, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8ri8, X86_INS_SUB: sub{b}	$src1 $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8rm, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8rr, X86_INS_SUB: sub */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUB8rr_REV, X86_INS_SUB: sub{b}	$dst $src2 */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SUBPDrm, X86_INS_SUBPD: subpd */
@@ -13060,92 +25802,272 @@
 
 {	/* X86_SUBR_F32m, X86_INS_FSUBR: fsubr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_F64m, X86_INS_FSUBR: fsubr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FI16m, X86_INS_FISUBR: fisubr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FI32m, X86_INS_FISUBR: fisubr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FPrST0, X86_INS_FSUBRP: fsubrp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FST0r, X86_INS_FSUBR: fsubr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_Fp32m, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_Fp64m, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_Fp64m32, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_Fp80m32, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_Fp80m64, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FpI16m32, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FpI16m64, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FpI16m80, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FpI32m32, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FpI32m64, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FpI32m80, X86_INS_FSUBR: fsubr */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBR_FrST0, X86_INS_FSUBR: fsubr */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUBSDrm, X86_INS_SUBSD: subsd */
@@ -13190,107 +26112,317 @@
 
 {	/* X86_SUB_F32m, X86_INS_FSUB: fsub */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_F64m, X86_INS_FSUB: fsub */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FI16m, X86_INS_FISUB: fisub */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FI32m, X86_INS_FISUB: fisub */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FPrST0, X86_INS_FSUBP: fsubp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FST0r, X86_INS_FSUB: fsub */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp32, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp32m, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp64, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp64m, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp64m32, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp80, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp80m32, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_Fp80m64, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FpI16m32, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FpI16m64, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FpI16m80, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FpI32m32, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FpI32m64, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FpI32m80, X86_INS_FSUB: fsub */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SUB_FrST0, X86_INS_FSUB: fsub */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_SWAPGS, X86_INS_SWAPGS: swapgs */
@@ -13300,12 +26432,32 @@
 
 {	/* X86_SYSCALL, X86_INS_SYSCALL: syscall */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			X86_EFLAGS_RF | X86_EFLAGS_VM, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SYSENTER, X86_INS_SYSENTER: sysenter */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			0, // modified
+			X86_EFLAGS_IF | X86_EFLAGS_RF | X86_EFLAGS_VM, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SYSEXIT, X86_INS_SYSEXIT: sysexit */
@@ -13320,7 +26472,17 @@
 
 {	/* X86_SYSRET, X86_INS_SYSRET: sysret */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_MODIFY_TF | X86_EFLAGS_MODIFY_IF | X86_EFLAGS_MODIFY_DF | X86_EFLAGS_MODIFY_NT | X86_EFLAGS_MODIFY_RF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			X86_EFLAGS_RF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_SYSRET64, X86_INS_SYSRETQ: sysretq */
@@ -13330,332 +26492,1004 @@
 
 {	/* X86_T1MSKC32rm, X86_INS_T1MSKC: t1mskc */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_T1MSKC32rr, X86_INS_T1MSKC: t1mskc */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_T1MSKC64rm, X86_INS_T1MSKC: t1mskc */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_T1MSKC64rr, X86_INS_T1MSKC: t1mskc */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16i16, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16mi, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16mi_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16mr, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16ri, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16ri_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST16rr, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32i32, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32mi, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32mi_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32mr, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32ri, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32ri_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST32rr, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64i32, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64mi32, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64mi32_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64mr, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64ri32, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64ri32_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST64rr, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8i8, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8mi, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8mi_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8mr, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8ri, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8ri_alt, X86_INS_TEST: test */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TEST8rr, X86_INS_TEST: test */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TPAUSE, X86_INS_TPAUSE: tpause */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TST_F, X86_INS_FTST: ftst */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_TST_Fp32, X86_INS_FTST: ftst */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_TST_Fp64, X86_INS_FTST: ftst */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_TST_Fp80, X86_INS_FTST: ftst */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_TZCNT16rm, X86_INS_TZCNT: tzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZCNT16rr, X86_INS_TZCNT: tzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZCNT32rm, X86_INS_TZCNT: tzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZCNT32rr, X86_INS_TZCNT: tzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZCNT64rm, X86_INS_TZCNT: tzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZCNT64rr, X86_INS_TZCNT: tzcnt */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF | X86_EFLAGS_UNDEFINED_OF | X86_EFLAGS_UNDEFINED_SF | X86_EFLAGS_UNDEFINED_PF | X86_EFLAGS_UNDEFINED_AF,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZMSK32rm, X86_INS_TZMSK: tzmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZMSK32rr, X86_INS_TZMSK: tzmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZMSK64rm, X86_INS_TZMSK: tzmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_TZMSK64rr, X86_INS_TZMSK: tzmsk */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISDrm, X86_INS_UCOMISD: ucomisd */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISDrm_Int, X86_INS_UCOMISD: ucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISDrr, X86_INS_UCOMISD: ucomisd */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISDrr_Int, X86_INS_UCOMISD: ucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISSrm, X86_INS_UCOMISS: ucomiss */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISSrm_Int, X86_INS_UCOMISS: ucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISSrr, X86_INS_UCOMISS: ucomiss */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOMISSrr_Int, X86_INS_UCOMISS: ucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UCOM_FIPr, X86_INS_FUCOMPI: fucompi */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_FIr, X86_INS_FUCOMI: fucomi */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_FPPr, X86_INS_FUCOMPP: fucompp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ 0 }
+	{ 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_FPr, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_FpIr32, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_FpIr64, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_FpIr80, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_Fpr32, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_Fpr64, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_Fpr80, X86_INS_FUCOMP: fucomp */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UCOM_Fr, X86_INS_FUCOM: fucom */
 	X86_FPU_FLAGS_MODIFY_C1 | X86_FPU_FLAGS_MODIFY_C0 | X86_FPU_FLAGS_MODIFY_C2 | X86_FPU_FLAGS_MODIFY_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C1 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+	}
 },
 
 {	/* X86_UD0, X86_INS_UD0: ud0 */
@@ -13690,7 +27524,17 @@
 
 {	/* X86_UMWAIT, X86_INS_UMWAIT: umwait */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_UNPCKHPDrm, X86_INS_UNPCKHPD: unpckhpd */
@@ -16985,92 +30829,272 @@
 
 {	/* X86_VCOMISDZrm, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDZrm_Int, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDZrr, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDZrr_Int, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDZrrb, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDrm, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDrm_Int, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDrr, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISDrr_Int, X86_INS_VCOMISD: vcomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSZrm, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSZrm_Int, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSZrr, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSZrr_Int, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSZrrb, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSrm, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSrm_Int, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSrr, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMISSrr_Int, X86_INS_VCOMISS: vcomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VCOMPRESSPDZ128mr, X86_INS_VCOMPRESSPD: vcompresspd */
@@ -22965,22 +36989,62 @@
 
 {	/* X86_VERRm, X86_INS_VERR: verr */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VERRr, X86_INS_VERR: verr */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VERWm, X86_INS_VERW: verw */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VERWr, X86_INS_VERW: verw */
 	X86_EFLAGS_MODIFY_ZF,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VEXP2PDZm, X86_INS_VEXP2PD: vexp2pd */
@@ -35860,12 +49924,32 @@
 
 {	/* X86_VMCALL, X86_INS_VMCALL: vmcall */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMCLEARm, X86_INS_VMCLEAR: vmclear */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMFUNC, X86_INS_VMFUNC: vmfunc */
@@ -36715,7 +50799,17 @@
 
 {	/* X86_VMLAUNCH, X86_INS_VMLAUNCH: vmlaunch */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMLOAD32, X86_INS_VMLOAD: vmload */
@@ -39545,37 +53639,107 @@
 
 {	/* X86_VMPTRLDm, X86_INS_VMPTRLD: vmptrld */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMPTRSTm, X86_INS_VMPTRST: vmptrst */
 	0,
-	{ CS_AC_WRITE, 0 }
+	{ CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMREAD32mr, X86_INS_VMREAD: vmread */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMREAD32rr, X86_INS_VMREAD: vmread */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMREAD64mr, X86_INS_VMREAD: vmread */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMREAD64rr, X86_INS_VMREAD: vmread */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMRESUME, X86_INS_VMRESUME: vmresume */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			X86_EFLAGS_IOPL | X86_EFLAGS_VM, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_TF | X86_EFLAGS_IF | X86_EFLAGS_DF | X86_EFLAGS_OF | X86_EFLAGS_IOPL | X86_EFLAGS_NT | X86_EFLAGS_RF | X86_EFLAGS_AC | X86_EFLAGS_VIF | X86_EFLAGS_VIP | X86_EFLAGS_ID, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMRUN32, X86_INS_VMRUN: vmrun */
@@ -40090,32 +54254,92 @@
 
 {	/* X86_VMWRITE32rm, X86_INS_VMWRITE: vmwrite */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMWRITE32rr, X86_INS_VMWRITE: vmwrite */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMWRITE64rm, X86_INS_VMWRITE: vmwrite */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMWRITE64rr, X86_INS_VMWRITE: vmwrite */
 	0,
-	{ CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMXOFF, X86_INS_VMXOFF: vmxoff */
 	0,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VMXON, X86_INS_VMXON: vmxon */
 	0,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VORPDYrm, X86_INS_VORPD: vorpd */
@@ -45310,22 +59534,62 @@
 
 {	/* X86_VPCMPESTRIrm, X86_INS_VPCMPESTRI: vpcmpestri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPESTRIrr, X86_INS_VPCMPESTRI: vpcmpestri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPESTRMrm, X86_INS_VPCMPESTRM: vpcmpestrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPESTRMrr, X86_INS_VPCMPESTRM: vpcmpestrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPGTBYrm, X86_INS_VPCMPGTB: vpcmpgtb */
@@ -45710,22 +59974,62 @@
 
 {	/* X86_VPCMPISTRIrm, X86_INS_VPCMPISTRI: vpcmpistri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPISTRIrr, X86_INS_VPCMPISTRI: vpcmpistri */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPISTRMrm, X86_INS_VPCMPISTRM: vpcmpistrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPISTRMrr, X86_INS_VPCMPISTRM: vpcmpistrm */
 	0,
-	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			X86_EFLAGS_PF | X86_EFLAGS_AF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPCMPQZ128rmi, X86_INS_VPCMP: vpcmp */
@@ -68170,22 +82474,62 @@
 
 {	/* X86_VPTESTYrm, X86_INS_VPTEST: vptest */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPTESTYrr, X86_INS_VPTEST: vptest */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPTESTrm, X86_INS_VPTEST: vptest */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPTESTrr, X86_INS_VPTEST: vptest */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VPUNPCKHBWYrm, X86_INS_VPUNPCKHBW: vpunpckhbw */
@@ -74115,132 +88459,392 @@
 
 {	/* X86_VTESTPDYrm, X86_INS_VTESTPD: vtestpd */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPDYrr, X86_INS_VTESTPD: vtestpd */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPDrm, X86_INS_VTESTPD: vtestpd */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPDrr, X86_INS_VTESTPD: vtestpd */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPSYrm, X86_INS_VTESTPS: vtestps */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPSYrr, X86_INS_VTESTPS: vtestps */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPSrm, X86_INS_VTESTPS: vtestps */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VTESTPSrr, X86_INS_VTESTPS: vtestps */
 	X86_EFLAGS_RESET_0F | X86_EFLAGS_RESET_AF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_ZF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDZrm, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDZrm_Int, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDZrr, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDZrr_Int, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDZrrb, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDrm, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDrm_Int, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDrr, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISDrr_Int, X86_INS_VUCOMISD: vucomisd */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSZrm, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSZrm_Int, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSZrr, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSZrr_Int, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSZrrb, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSrm, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSrm_Int, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSrr, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUCOMISSrr_Int, X86_INS_VUCOMISS: vucomiss */
 	0,
-	{ CS_AC_READ, CS_AC_READ, 0 }
+	{ CS_AC_READ, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_VUNPCKHPDYrm, X86_INS_VUNPCKHPD: vunpckhpd */
@@ -75260,42 +89864,122 @@
 
 {	/* X86_XADD16rm, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD16rr, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD32rm, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD32rr, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD64rm, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD64rr, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD8rm, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XADD8rr, X86_INS_XADD: xadd */
 	X86_EFLAGS_MODIFY_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_MODIFY_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_MODIFY_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ | CS_AC_WRITE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_ZF | X86_EFLAGS_SF | X86_EFLAGS_OF, // modified
+			0, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XBEGIN_2, X86_INS_XBEGIN: xbegin */
@@ -75365,7 +90049,17 @@
 
 {	/* X86_XCH_F, X86_INS_FXCH: fxch */
 	X86_FPU_FLAGS_RESET_C1 | X86_FPU_FLAGS_UNDEFINED_C0 | X86_FPU_FLAGS_UNDEFINED_C2 | X86_FPU_FLAGS_UNDEFINED_C3,
-	{ CS_AC_READ, 0 }
+	{ CS_AC_READ, 0 },
+	{
+		{}, // CPU
+		{// FPU
+			0, // tested
+			X86_FPUFLAGS_C1, // modified
+			0, // set_0
+			0, // set_1
+			X86_FPUFLAGS_C0 | X86_FPUFLAGS_C2 | X86_FPUFLAGS_C3, // undefined
+		},
+	}
 },
 
 {	/* X86_XCRYPTCBC, X86_INS_XCRYPTCBC: xcryptcbc */
@@ -75410,182 +90104,542 @@
 
 {	/* X86_XOR16i16, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16mi, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16mi8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16mr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16ri, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16ri8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16rm, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16rr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR16rr_REV, X86_INS_XOR: xor{w}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32i32, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32mi, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32mi8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32mr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32ri, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32ri8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32rm, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32rr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR32rr_REV, X86_INS_XOR: xor{l}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64i32, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64mi32, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64mi8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64mr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64ri32, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64ri8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64rm, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64rr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR64rr_REV, X86_INS_XOR: xor{q}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8i8, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8mi, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8mi8, X86_INS_XOR: xor{b}	$dst $src */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8mr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8ri, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8ri8, X86_INS_XOR: xor{b}	$src1 $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_IGNORE, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8rm, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8rr, X86_INS_XOR: xor */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XOR8rr_REV, X86_INS_XOR: xor{b}	$dst $src2 */
 	X86_EFLAGS_RESET_OF | X86_EFLAGS_MODIFY_SF | X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_UNDEFINED_AF | X86_EFLAGS_MODIFY_PF | X86_EFLAGS_RESET_CF,
-	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 }
+	{ CS_AC_READ | CS_AC_WRITE, CS_AC_READ, 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_PF | X86_EFLAGS_ZF | X86_EFLAGS_SF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			X86_EFLAGS_AF, // undefined
+		},
+		{}, // FPU
+	}
 },
 
 {	/* X86_XORPDrm, X86_INS_XORPD: xorpd */
@@ -75695,5 +90749,15 @@
 
 {	/* X86_XTEST, X86_INS_XTEST: xtest */
 	X86_EFLAGS_MODIFY_ZF | X86_EFLAGS_RESET_CF | X86_EFLAGS_RESET_OF | X86_EFLAGS_RESET_SF | X86_EFLAGS_RESET_PF | X86_EFLAGS_RESET_AF,
-	{ 0 }
+	{ 0 },
+	{
+		{// CPU
+			0, // tested
+			X86_EFLAGS_ZF, // modified
+			X86_EFLAGS_CF | X86_EFLAGS_PF | X86_EFLAGS_AF | X86_EFLAGS_SF | X86_EFLAGS_OF, // set_0
+			0, // set_1
+			0, // undefined
+		},
+		{}, // FPU
+	}
 },

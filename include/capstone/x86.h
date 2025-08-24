@@ -156,6 +156,29 @@ typedef enum x86_reg {
 #define X86_FPU_FLAGS_TEST_C3 (1ULL << 19)
 
 
+// Flag register fields for cpu_flags
+#define X86_EFLAGS_CF    (1UL <<  0)
+#define X86_EFLAGS_PF    (1UL <<  2)
+#define X86_EFLAGS_AF    (1UL <<  4)
+#define X86_EFLAGS_ZF    (1UL <<  6)
+#define X86_EFLAGS_SF    (1UL <<  7)
+#define X86_EFLAGS_TF    (1UL <<  8)
+#define X86_EFLAGS_IF    (1UL <<  9)
+#define X86_EFLAGS_DF    (1UL << 10)
+#define X86_EFLAGS_OF    (1UL << 11)
+#define X86_EFLAGS_IOPL  (1UL << 12)
+#define X86_EFLAGS_NT    (1UL << 14)
+#define X86_EFLAGS_RF    (1UL << 16)
+#define X86_EFLAGS_VM    (1UL << 17)
+#define X86_EFLAGS_AC    (1UL << 18)
+#define X86_EFLAGS_VIF   (1UL << 19)
+#define X86_EFLAGS_VIP   (1UL << 20)
+#define X86_EFLAGS_ID    (1UL << 21)
+#define X86_FPUFLAGS_C0    (1UL <<  0)
+#define X86_FPUFLAGS_C1    (1UL <<  1)
+#define X86_FPUFLAGS_C2    (1UL <<  2)
+#define X86_FPUFLAGS_C3    (1UL <<  3)
+
 /// Operand type for instruction's operands
 typedef enum x86_op_type {
 	X86_OP_INVALID = CS_OP_INVALID, ///< = CS_OP_INVALID (Uninitialized).
@@ -311,6 +334,21 @@ typedef struct cs_x86_encoding {
 	uint8_t imm_size;
 } cs_x86_encoding;
 
+/// Instruction flag access
+typedef struct cs_cpu_flag_state {
+	uint32_t tested;
+	uint32_t modified;
+	uint32_t set_0;
+	uint32_t set_1;
+	uint32_t undefined;
+} cs_cpu_flag_state;
+
+/// Flags accessed or modified by an instruction
+typedef struct cs_cpu_flags {
+	cs_cpu_flag_state eflags;
+	cs_cpu_flag_state fpu_flags;
+} cs_cpu_flags;
+
 /// Instruction structure
 typedef struct cs_x86 {
 	/// Instruction prefix, which can be up to 4 bytes.
@@ -373,6 +411,10 @@ typedef struct cs_x86 {
 		/// This can be formed from OR combination of X86_FPU_FLAGS_* symbols in x86.h
 		uint64_t fpu_flags;
 	};
+  
+	/// All CPU flags updated by this instruction.
+	/// These are a superset of eflags and fpu_flags.
+	cs_cpu_flags cpu_flags;
 
 	/// Number of operands of this instruction,
 	/// or 0 when instruction has no operand.
